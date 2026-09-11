@@ -1,0 +1,9 @@
+SECRET_KEY = "tests"
+ALLOWED_HOSTS = ["*"]
+INSTALLED_APPS = ["django.contrib.contenttypes", "tests.app"]
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
+MIDDLEWARE = ["queryscope.middleware.QueryScopeMiddleware"]
+ROOT_URLCONF = "tests.app.urls"
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+USE_TZ = True
+QUERYSCOPE = {"N_PLUS_ONE_THRESHOLD": 5}

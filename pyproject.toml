@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-queryscope"
+version = "0.1.0"
+description = "Find slow queries and N+1 patterns in Django, per request."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Pittala Shivakumar" }]
+requires-python = ">=3.10"
+dependencies = ["Django>=4.2"]
+classifiers = [
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.2",
+    "Framework :: Django :: 6.1",
+    "Programming Language :: Python :: 3",
+    "Topic :: Database",
+    "Topic :: Software Development :: Debuggers",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-django"]
+
+[project.urls]
+Homepage = "https://github.com/shivapittala19/django-queryscope"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/queryscope"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = [".", "src"]
